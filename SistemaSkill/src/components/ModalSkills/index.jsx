@@ -16,12 +16,12 @@ export default function ModalSkill({onClick}) {
   console.log(skillsUsuario);
   
   return (
-    <Container>
-      <FaTimes onClick={onClick} style={{justifySelf:"end",alignSelf:"end",margin:"1%"}}/>
-      <DivTitulo>
-      <Titulo>Adicionar skills</Titulo>
+    <Container tabIndex={0}>
+      <FaTimes onClick={onClick} style={{justifySelf:"end",alignSelf:"end",margin:"1%"}} tabIndex={0} aria-label='Selecione para fechar o modal'/>
+      <DivTitulo tabIndex={0}>
+      <Titulo tabIndex={0}>Adicionar skills</Titulo>
       </DivTitulo>
-      <DivSkills>
+      <DivSkills tabIndex={0}>
         {skillsUsuario.map((skill, index) => (
           <CardSkill key={index} skill={skill} page={"Modal"}/>
           ))}

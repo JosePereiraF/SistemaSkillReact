@@ -64,24 +64,23 @@ export default function Login() {
 
   return (
     <Container>
-        
         <ContainerBot>
             <ContainerLeft>
-                <ContainerLeftTop>
-                <p style={{fontSize:"var(--fontsize-titulo)"}}>Conheça nossa plataforma</p>
+                <ContainerLeftTop tabIndex={0}>
+                <p style={{fontSize:"var(--fontsize-titulo)"}} tabIndex={0} >Conheça nossa plataforma</p>
                 </ContainerLeftTop>
-                <ContainerLeftBot>
-                <Input texto={"Login"} placeholder={"Digite seu login"} type={"text"} value={login} onChange={handleLogin}/>
-                <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"password"} value={senha} onChange={handleSenha}/>
-                <DivSalvarCredecial>
+                <ContainerLeftBot tabIndex={0}>
+                <Input texto={"Login"} placeholder={"Digite seu login"} type={"text"} value={login} onChange={handleLogin} textoAcessibilidade={"Campo para adicionar o login"}/>
+                <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"password"} value={senha} onChange={handleSenha} textoAcessibilidade={"Campo para adicionar a senha"}/>
+                <DivSalvarCredecial tabIndex={0}>
                   <p>Salvar credenciais </p>
-               <CheckBox type='checkbox' onClick={salvaCredencial} checked={saveCredencial}/>
+               <CheckBox type='checkbox' onClick={salvaCredencial} checked={saveCredencial} aria-label='Selecione para salvar o login e a senha no proximo acesso' tabIndex={0}/>
                 </DivSalvarCredecial>
-                <DivCadastro>
-                <Cadastro href='/cadastro'>Cadastre-se já.</Cadastro>
+                <DivCadastro tabIndex={0}>
+                <Cadastro href='/cadastro' aria-label='Selecione para se cadastrar' tabIndex={0}>Cadastre-se já.</Cadastro>
                 </DivCadastro>
-                <Botao onClick={logar} texto={"logar"}/>
-                <TextoErro>{erroMensagem}</TextoErro>
+                <Botao onClick={logar} texto={"logar"} textoAcessibilidade={"Botao para fazer login"} />
+                <TextoErro tabIndex={0}>{erroMensagem}</TextoErro>
                 </ContainerLeftBot>
               
             </ContainerLeft>

@@ -7,8 +7,8 @@ export default function CardUsuario({usuario}) {
         {/* <DivImagemUsuario>
         <ImagemUsuario src={imagemTeste}/>
         </DivImagemUsuario> */}
-        <DivNomeUsuario>
-            <Texto>{usuario.nome}</Texto>
+        <DivNomeUsuario tabIndex={0}>
+            <Texto tabIndex={0}>{usuario.nome}</Texto>
         </DivNomeUsuario>
     </Container>
   )

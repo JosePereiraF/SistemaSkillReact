@@ -10,10 +10,10 @@ export default function Navbar() {
     navigate("/login")
   }
   return (
-    <Container>
-        <Logo src={logo}/>
-        <DivLogout>
-        <FaSignOutAlt onClick={logout} style={{height:"2rem", width:"2rem",color:"var(--cor-cinza-v2)"}}/>
+    <Container tabIndex={0}>
+        <Logo src={logo} tabIndex={0} aria-label='Logotipo escrita skill badge'/>
+        <DivLogout tabIndex={0} >
+        <FaSignOutAlt onClick={logout} style={{height:"2rem", width:"2rem",color:"var(--cor-cinza-v2)"}} tabIndex={0} aria-label='Selecione para deslogar.'/>
         </DivLogout>
     </Container>
   )

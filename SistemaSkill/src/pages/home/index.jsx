@@ -28,21 +28,21 @@ export default function Home() {
 
   return (
     <Container>
-      <div style={{width:"100vw",height:"10vh"}}>
+      <div style={{width:"100vw",height:"10vh"}} tabIndex={0}>
         <Navbar/>
       </div>
      
         <ContainerBot>
-            <ContainerUsuario>
+            <ContainerUsuario tabIndex={0}>
             <CardUsuario usuario={usuario}/>
             </ContainerUsuario>
-            <ContainerSkills>
-              <DivSubtitulo>
-                <p style={{fontSize:"var(--fontsize-subtitulo)"}}>Skills</p>
-                    <FaPlusCircle onClick={abrirModal}/>             
+            <ContainerSkills tabIndex={0}>
+              <DivSubtitulo tabIndex={0}>
+                <p style={{fontSize:"var(--fontsize-subtitulo)"}} tabIndex={0}>Skills</p>
+                    <FaPlusCircle onClick={abrirModal} tabIndex={0} aria-label='Clique para adicionar novas skills a lista'/>             
               </DivSubtitulo>
               {!modal&&(
-              <DivSkills>
+              <DivSkills tabIndex={0}>
                 {skillsUsuario.map((skill)=>(
                   <CardSkill key={skill.id} skill={skill} page={"Home"}/>
                 ))}
@@ -52,7 +52,7 @@ export default function Home() {
         </ContainerBot>
      
         {modal &&(
-        <ModalSkill onClick={fecharModal}/>
+        <ModalSkill onClick={fecharModal} />
       )}
        <ToastContainer />
     </Container>

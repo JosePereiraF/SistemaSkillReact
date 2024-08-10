@@ -97,44 +97,44 @@ export default function CardSkill({skill,page}) {
   return (
     <Container>
       {page =="Home"&&(
-      <DivExcluir>
+      <DivExcluir tabIndex={0}>
         {botaoAvaliar&&(
-        <FaSyncAlt onClick={confimarAvalicao} />
+        <FaSyncAlt onClick={confimarAvalicao} tabIndex={0} aria-label='Selecione para Atualizar o nivel da sua skill'/>
         )}
-      <FaTrash onClick={deletarSkill}/>
+      <FaTrash onClick={deletarSkill} tabIndex={0} aria-label='Selecione para excluir a skill'/>
       </DivExcluir>
       )
       }
       {page =="Modal"&&(
-      <DivExcluir>
-      <FaPlusCircle onClick={adicionarSkill}/>
+      <DivExcluir tabIndex={0}>
+      <FaPlusCircle onClick={adicionarSkill} tabIndex={0} aria-label='Selecione para abrir o modal de novas skills'/>
       </DivExcluir>
       )
       }
       <DivSkill>
-        <DivImagem>
-            <ImagemSkill src={skill.foto}/>
-            <p>{skill.nome}</p>
+        <DivImagem tabIndex={0}>
+            <ImagemSkill src={skill.foto} tabIndex={0} aria-label={"Imagem sobre a skill "+skill.nome}/>
+            <p tabIndex={0}>{skill.nome}</p>
         </DivImagem>
-        <DivNivel>
-        <TituloNivel>{skill.nivel}</TituloNivel>
+        <DivNivel tabIndex={0}>
+        <TituloNivel tabIndex={0}>{skill.nivel}</TituloNivel>
         <DivAvaliacao>
-        <IconButton aria-label="add to favorites" onClick={()=>avaliar(2,"Avançado")}>
-            <FaStar style={{color:skill.nivel =="Avançado"?" #ffbf00":""}}/>
+        <IconButton  onClick={()=>avaliar(2,"Avançado")} tabIndex={0} aria-label={'Selecione para Adicionar o nivel avancado a skill '+skill.nome}>
+            <FaStar style={{color:skill.nivel =="Avançado"?" #ffbf00":""}} tabIndex={0} aria-label={"imagem de uma estrela"}/>
         </IconButton>
-        <IconButton aria-label="add to favorites" onClick={()=>avaliar(1,"Intermediario")}>
-          <FaStar style={{color:skill.nivel !="Basico"&& skill.nivel !=null?"#ffbf00":""}}/>
+        <IconButton  onClick={()=>avaliar(1,"Intermediario")} tabIndex={0} aria-label={'Selecione para Adicionar o nivel Intermediario a skill '+skill.nome}>
+          <FaStar style={{color:skill.nivel !="Basico"&& skill.nivel !=null?"#ffbf00":""}} tabIndex={0} aria-label={"imagem de uma estrela"}/>
         </IconButton>
-        <IconButton aria-label="add to favorites" onClick={()=>avaliar(0,"Basico")}>
-          <FaStar  style={{color:skill.nivel !=null?"#ffbf00":""}}/>
+        <IconButton onClick={()=>avaliar(0,"Basico")} tabIndex={0} aria-label={'Selecione para Adicionar o nivel basico a skill '+skill.nome}>
+          <FaStar  style={{color:skill.nivel !=null?"#ffbf00":""}} tabIndex={0} aria-label={"imagem de uma estrela"} />
         </IconButton>
         </DivAvaliacao>
         </DivNivel>
-        <DivDescricao>
-          <p >Descricão</p>
-          <DivTextoDescricao>
+        <DivDescricao tabIndex={0}>
+          <p tabIndex={0}>Descricão</p>
+          <DivTextoDescricao tabIndex={0}>
 
-          <TextoDescricao>{skill.descricao}</TextoDescricao>
+          <TextoDescricao tabIndex={0}>{skill.descricao}</TextoDescricao>
           </DivTextoDescricao>
           </DivDescricao>
       </DivSkill>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { BotaoC, Texto } from './style'
 
-export default function Botao({onClick,texto}) {
+export default function Botao({onClick,texto,textoAcessibilidade}) {
 
   return (
-        <BotaoC title='Logar' onClick={onClick}><Texto>{texto}</Texto></BotaoC>
+        <BotaoC title='Logar' onClick={onClick} aria-label={textoAcessibilidade} tabIndex={0}><Texto>{texto}</Texto></BotaoC>
   )
 }

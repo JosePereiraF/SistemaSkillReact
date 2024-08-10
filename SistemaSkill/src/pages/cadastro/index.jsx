@@ -60,18 +60,18 @@ function Cadastro() {
   return (
     <Container>
       <ContainerBot>
-        <DivVoltar>
-        <FaArrowLeft onClick={voltar} style={{height:"30px",width:"30px"}}/>
+        <DivVoltar tabIndex={0}>
+        <FaArrowLeft onClick={voltar} style={{height:"30px",width:"30px"}} aria-label='Selecione para voltar para o login' tabIndex={0}/>
         </DivVoltar>
-      <ContainerLeft>
-      <Input texto={"Nome de usuario"} placeholder={"Digite seu nome de usuario"} type={"text"} value={nomeUsuario} onChange={handleNomeUsuario}/>
-      <Input texto={"Login"} placeholder={"Digite seu login"} type={"text"} value={login} onChange={handleLogin}/>
-      <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"password"} value={senha} onChange={handleSenha}/>
-      <Input texto={"Confirmar senha"} placeholder={"Digite sua senha novamente"} type={"password"} value={confirmarSenha} onChange={handleConfirmarSenha}/>
-      <Botao texto={"cadastrar"} onClick={cadastrar}/>
-      <TextoErro>{erroMensagem}</TextoErro>
+      <ContainerLeft tabIndex={0}>
+      <Input texto={"Nome de usuario"} placeholder={"Digite seu nome de usuario"} type={"text"} value={nomeUsuario} onChange={handleNomeUsuario} textoAcessibilidade={"Campo para adicionar o seu nome de usuario"}/>
+      <Input texto={"Login"} placeholder={"Digite seu login"} type={"text"} value={login} onChange={handleLogin} textoAcessibilidade={"Campo para adicionar o login"}/>
+      <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"password"} value={senha} onChange={handleSenha} textoAcessibilidade={"Campo para adicionar a senha"}/>
+      <Input texto={"Confirmar senha"} placeholder={"Digite sua senha novamente"} type={"password"} value={confirmarSenha} onChange={handleConfirmarSenha} textoAcessibilidade={"Campo para confirmar a senha"}/>
+      <Botao texto={"cadastrar"} onClick={cadastrar} textoAcessibilidade={"Selecione para cadastrar-se."} />
+      <TextoErro tabIndex={0}>{erroMensagem}</TextoErro>
       </ContainerLeft>
-      <ContainerImagem/>
+      <ContainerImagem />
       </ContainerBot>
     </Container>
   )
