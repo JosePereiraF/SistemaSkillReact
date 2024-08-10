@@ -55,3 +55,19 @@ export const AdicionarUsuarioSkill =async(UsuarioSkillDTO)=>{
             }
             });
 }
+export const FotoSkill = async(id)=>{
+    const token = await JSON.parse(localStorage.getItem("token"));
+    const url = `/skill/foto/${id}`;
+    return Api.get(url,{
+        headers:{
+            Authorization: `Bearer ${token}`
+            }
+            });      
+}
+export const BuscarFotoSkill = async(id)=>{
+    const token = await JSON.parse(localStorage.getItem("token"));
+    const url = `/skill/foto/${id}`;
+    return Api.get(url,{headers:{
+        Authorization: `Bearer ${token}`
+    }})
+}

@@ -28,7 +28,7 @@ export const ContainerSkills = styled.div`
 display: flex;
 flex-direction: column;
 width: 100%;
-height: 70vh;
+height: 65vh;
 justify-content: center;
 `
 export const DivSubtitulo = styled.div`
@@ -44,6 +44,5 @@ display: flex;
 flex-direction: column;
 height: 65vh;
 width: 100%;
-justify-content: space-around;
 align-items: center;
 `

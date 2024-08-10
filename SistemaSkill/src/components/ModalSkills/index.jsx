@@ -4,6 +4,8 @@ import CardSkill from '../CardSkill'
 import { ListarSkills } from '../../service/Usuario/usuario'
 import { SistemaContext } from '../../contexts/SistemaSkill/sistemaSkill';
 import { FaTimes } from 'react-icons/fa';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ModalSkill({onClick}) {
   const {skillsUsuario,setSkillUsuario} =useContext(SistemaContext);
@@ -25,6 +27,7 @@ export default function ModalSkill({onClick}) {
           <CardSkill key={index} skill={skill} page={"Modal"}/>
           ))}
       </DivSkills>
+
     </Container>
 
   )

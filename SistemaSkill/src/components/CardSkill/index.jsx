@@ -1,18 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Container, DivAvaliacao, DivDescricao, DivExcluir, DivImagem, DivNivel, DivSkill, ImagemSkill, TextoDescricao, TituloNivel } from './style'
-import imagem from '../../assets/excel.png'
-import Avaliacao from '../AvaliacaoIcon'
 import { FaPlusCircle, FaStar, FaSyncAlt, FaTrash } from 'react-icons/fa';
-import { AdicionarUsuarioSkill, AtualizarSkill, DeletarSkillUsuario } from '../../service/Usuario/usuario';
+import { AdicionarUsuarioSkill, AtualizarSkill, BuscarFotoSkill, DeletarSkillUsuario, FotoSkill } from '../../service/Usuario/usuario';
 import { SistemaContext } from '../../contexts/SistemaSkill/sistemaSkill';
 import { IconButton } from '@mui/material';
-import ModalSkill from '../ModalSkills';
+import { toast, ToastContainer } from 'react-toastify';
 export default function CardSkill({onClick,skill,page}) {
   const [nivel,setNivel]=useState(0);
   const [botaoAvaliar,setBotaoAvaliar]=useState(false);
-
-
-  const {usuario,skillsUsuario,setSkillUsuario,skillsAdicionar,setSkillsAdicionar}=useContext(SistemaContext);
+  
+  const {usuario,skillsUsuario,setSkillUsuario,skillsAdicionar,setSkillsAdicionar,ativarMensagem,setAtivarMensagem,setMensagem}=useContext(SistemaContext);
   const deletarSkill= async()=>{
     const excluirSkill ={
       idUsuario:usuario.id,
@@ -21,6 +18,15 @@ export default function CardSkill({onClick,skill,page}) {
     try {
       DeletarSkillUsuario(excluirSkill);
       const skills = skillsUsuario.filter(item => item.id !== excluirSkill.idSkill)
+      toast.success("Skill deletada com sucesso!",{
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setSkillUsuario(skills);
     } catch (error) {
       console.log(error);
@@ -45,6 +51,15 @@ export default function CardSkill({onClick,skill,page}) {
     try {
       AtualizarSkill(atualizarSkill);
       setBotaoAvaliar(!botaoAvaliar);
+      toast.success("Skill Atualizada com sucesso!",{
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     } catch (error) {
       
     }
@@ -61,13 +76,24 @@ export default function CardSkill({onClick,skill,page}) {
       ]
     }
     try {
-      console.log(adicionarSkillUsuario);
       AdicionarUsuarioSkill(adicionarSkillUsuario);
       setSkillsAdicionar([...skillsAdicionar,skill])
+      const skills = skillsUsuario.filter(item => item.id !== adicionarSkillUsuario.skill[0].id)
+      setSkillUsuario(skills);
+      toast.success("Skill Adicionada com sucesso!",{
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       
     }
   }
+
   return (
     <Container>
       {page =="Home"&&(
@@ -87,7 +113,7 @@ export default function CardSkill({onClick,skill,page}) {
       }
       <DivSkill>
         <DivImagem>
-            <ImagemSkill src={imagem}/>
+            <ImagemSkill src={skill.foto}/>
             <p>{skill.nome}</p>
         </DivImagem>
         <DivNivel>
@@ -107,10 +133,11 @@ export default function CardSkill({onClick,skill,page}) {
         <DivDescricao>
           <p >Descricão</p>
           <div style={{maxHeight:"15vh", overflowY:"auto"}}>
-          <TextoDescricao>Vivemos em um mundo dinâmico onde a tecnologia avança rapidamente, transformando nossas vidas e moldando o futuro. Adaptar-se a essas mudanças é crucial para o sucesso pessoal e profissional. A busca por conhecimento contínuo é essencial para se manter relevante e preparado.</TextoDescricao>
+          <TextoDescricao>{skill.descricao}</TextoDescricao>
           </div>
           </DivDescricao>
       </DivSkill>
+ 
     </Container>
 
   )

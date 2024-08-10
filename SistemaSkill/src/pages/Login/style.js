@@ -45,6 +45,16 @@ export const DivCadastro = styled.div`
 display: flex;
 width: 25rem;
 `
+export const DivSalvarCredecial= styled.div`
+display: flex;
+width: 25rem;
+flex-direction: row;
+margin-left: 3%;
+align-self: center;
+`
+export const CheckBox = styled.input`
+
+`
 export const Cadastro = styled.a`
 display: flex;
 font-size: 20px;

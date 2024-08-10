@@ -14,13 +14,30 @@ margin-left: 2%;
 color:black;
 font-size: var(--fontsize-texto);
 `
-export const TextInput = styled.input`
+export const DivInput= styled.div`
 display: flex;
-background-color: #f2f2f2;
 width: 25rem;
 height: 3rem;
 border-radius: 10px;
-color: #000000;
+background-color: #f2f2f2;
+border: 1px solid;
+justify-content: center;
+align-items: center;
+`
+export const TextInput = styled.input`
+background-color: #f2f2f2;
+border: none;
 font-size: var(--fontsize-texto);
+width: 90%;
+height: 3rem;
 padding-left: 2%;
+outline: none;
+`
+export const DivTeste = styled.div`
+display: flex;
+align-self: center;
+justify-items: center;
+
+
+
 `

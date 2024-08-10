@@ -4,9 +4,9 @@ import imagemTeste from "../../assets/avatarUsuario.jpeg"
 export default function CardUsuario({usuario}) {
   return (
     <Container>
-        <DivImagemUsuario>
+        {/* <DivImagemUsuario>
         <ImagemUsuario src={imagemTeste}/>
-        </DivImagemUsuario>
+        </DivImagemUsuario> */}
         <DivNomeUsuario>
             <Texto>{usuario.nome}</Texto>
         </DivNomeUsuario>

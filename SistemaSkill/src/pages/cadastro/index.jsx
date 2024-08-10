@@ -3,16 +3,17 @@ import Navbar from '../../components/Navbar';
 import ContainerImagem from '../../components/ContainerImagem';
 
 import Input from '../../components/Input';
-import { Container, ContainerLeft , ContainerBot, TextoErro } from './style';
+import { Container, ContainerLeft , ContainerBot, TextoErro, DivVoltar } from './style';
 import Botao from '../../components/Botao';
 import { CadastroUsuario } from '../../service/Usuario/usuario';
 import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 function Cadastro() {
   const navigate = useNavigate();
   const[nomeUsuario,setNomeUsuario]= useState("");
-  const [login,setLogin]=useState("");
-  const [senha,setSenha]=useState("");
+  const [login,setLogin] = useState('');
+  const [senha,setSenha] = useState("");
   const [confirmarSenha,setConfirmarSenha]=useState("");
   const [erroMensagem, setErroMensagem]= useState("");
   const handleNomeUsuario =(event)=>{
@@ -52,18 +53,21 @@ function Cadastro() {
             console.log(error.response.data.titulo);
             
           }
-
-
+  }
+  const voltar=()=>{
+    navigate("/login")
   }
   return (
     <Container>
-      <Navbar/>
       <ContainerBot>
+        <DivVoltar>
+        <FaArrowLeft onClick={voltar} style={{height:"30px",width:"30px"}}/>
+        </DivVoltar>
       <ContainerLeft>
       <Input texto={"Nome de usuario"} placeholder={"Digite seu nome de usuario"} type={"text"} value={nomeUsuario} onChange={handleNomeUsuario}/>
       <Input texto={"Login"} placeholder={"Digite seu login"} type={"text"} value={login} onChange={handleLogin}/>
-      <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"text"} value={senha} onChange={handleSenha}/>
-      <Input texto={"Confirmar senha"} placeholder={"Digite sua senha novamente"} type={"text"} value={confirmarSenha} onChange={handleConfirmarSenha}/>
+      <Input texto={"Senha"} placeholder={"Digite sua senha"} type={"password"} value={senha} onChange={handleSenha}/>
+      <Input texto={"Confirmar senha"} placeholder={"Digite sua senha novamente"} type={"password"} value={confirmarSenha} onChange={handleConfirmarSenha}/>
       <Botao texto={"cadastrar"} onClick={cadastrar}/>
       <TextoErro>{erroMensagem}</TextoErro>
       </ContainerLeft>

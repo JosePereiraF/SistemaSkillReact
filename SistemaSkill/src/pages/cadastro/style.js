@@ -23,6 +23,16 @@ gap: 2%;
 justify-content: center;
 align-items: center;
 `
+export const DivVoltar = styled.div`
+display: flex;
+margin: 1%;
+height: 5vh;
+/* position: fixed;
+top: 2vh;
+left: 1vw;
+right: 0;
+bottom: 0; */
+`
 export const TextoErro = styled.p`
 color: var(--cor-vermelha);
 `

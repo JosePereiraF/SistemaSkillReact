@@ -7,9 +7,11 @@ import { SistemaContext } from '../../contexts/SistemaSkill/sistemaSkill'
 import { ListarSkillUsuario } from '../../service/Usuario/usuario'
 import { FaPlusCircle } from 'react-icons/fa'
 import ModalSkill from '../../components/ModalSkills'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
-  const {skillsUsuario,setSkillUsuario,usuario,skillsAdicionar,setSkillsAdicionar} =useContext(SistemaContext);
+  const {skillsUsuario,setSkillUsuario,usuario,skillsAdicionar,setSkillsAdicionar,mensagem,ativarMensagem,setAtivarMensagem} =useContext(SistemaContext);
   const [modal,setModal]= useState(false);
   
   useEffect(()=>{
@@ -24,6 +26,31 @@ export default function Home() {
     setModal(!modal);
     setSkillUsuario(skillsAdicionar);
   }
+  const funcao =()=>{
+    
+    console.log(ativarMensagem);
+  }
+  const testando=JSON.parse(localStorage.getItem("modal"));
+
+  if(testando=="false"){
+    const texto = mensagem;
+    const valor = false;
+    setAtivarMensagem(valor);
+    console.log(valor)
+    console.log(mensagem);
+    toast.success("Skill Atualizada com sucesso!",{
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    localStorage.setItem("modal",JSON.stringify("true"));
+  }
+
+  
   return (
     <Container>
       <div style={{width:"100vw",height:"10vh"}}>
@@ -52,6 +79,7 @@ export default function Home() {
         {modal &&(
         <ModalSkill onClick={fecharModal}/>
       )}
+       <ToastContainer />
     </Container>
   )
 }
