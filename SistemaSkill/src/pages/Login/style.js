@@ -40,10 +40,13 @@ justify-content: start;
 align-items: center;
 flex-direction: column;
 gap: 3%;
-`
-export const DivCadastro = styled.div`
-display: flex;
-width: 25rem;
+@media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 `
 export const DivSalvarCredecial= styled.div`
 display: flex;
@@ -51,6 +54,28 @@ width: 25rem;
 flex-direction: row;
 margin-left: 3%;
 align-self: center;
+@media (max-width: 768px) {
+    width: 20rem;
+}
+@media (max-width: 660px) {
+    width: 15rem;
+}
+@media (max-width: 540px) {
+    width: 10rem;
+}
+`
+export const DivCadastro = styled.div`
+display: flex;
+width: 25rem;
+@media (max-width: 768px) {
+    width: 20rem;
+}
+@media (max-width: 660px) {
+    width: 15rem;
+}
+@media (max-width: 540px) {
+    width: 10rem;
+}
 `
 export const CheckBox = styled.input`
 

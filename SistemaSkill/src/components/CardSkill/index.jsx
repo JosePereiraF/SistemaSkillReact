@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Container, DivAvaliacao, DivDescricao, DivExcluir, DivImagem, DivNivel, DivSkill, ImagemSkill, TextoDescricao, TituloNivel } from './style'
+import { Container, DivAvaliacao, DivDescricao, DivExcluir, DivImagem, DivNivel, DivSkill, DivTextoDescricao, ImagemSkill, TextoDescricao, TituloNivel } from './style'
 import { FaPlusCircle, FaStar, FaSyncAlt, FaTrash } from 'react-icons/fa';
 import { AdicionarUsuarioSkill, AtualizarSkill, BuscarFotoSkill, DeletarSkillUsuario, FotoSkill } from '../../service/Usuario/usuario';
 import { SistemaContext } from '../../contexts/SistemaSkill/sistemaSkill';
 import { IconButton } from '@mui/material';
 import { toast, ToastContainer } from 'react-toastify';
-export default function CardSkill({onClick,skill,page}) {
+export default function CardSkill({skill,page}) {
   const [nivel,setNivel]=useState(0);
   const [botaoAvaliar,setBotaoAvaliar]=useState(false);
   
-  const {usuario,skillsUsuario,setSkillUsuario,skillsAdicionar,setSkillsAdicionar,ativarMensagem,setAtivarMensagem,setMensagem}=useContext(SistemaContext);
+  const {usuario,skillsUsuario,setSkillUsuario,skillsAdicionar,setSkillsAdicionar}=useContext(SistemaContext);
   const deletarSkill= async()=>{
     const excluirSkill ={
       idUsuario:usuario.id,
@@ -132,9 +132,10 @@ export default function CardSkill({onClick,skill,page}) {
         </DivNivel>
         <DivDescricao>
           <p >Descricão</p>
-          <div style={{maxHeight:"15vh", overflowY:"auto"}}>
+          <DivTextoDescricao>
+
           <TextoDescricao>{skill.descricao}</TextoDescricao>
-          </div>
+          </DivTextoDescricao>
           </DivDescricao>
       </DivSkill>
  

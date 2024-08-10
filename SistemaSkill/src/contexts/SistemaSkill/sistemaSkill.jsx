@@ -8,10 +8,10 @@ function SistemaProvider({children}){
     const[skillsUsuario,setSkillUsuario]= useState([]);
     const [skillsAdicionar,setSkillsAdicionar]=useState([]);
     const [autenticated,setAutenticated]=useState(false);
-    const [ativarMensagem,setAtivarMensagem]=useState(valorIncial);
-    const [mensagem,setMensagem]=useState("");
+
+    //,ativarMensagem,setAtivarMensagem,setMensagem
     return(
-        <SistemaContext.Provider value={{mensagem,setMensagem,ativarMensagem,setAtivarMensagem,autenticated,setAutenticated,skillsAdicionar,setSkillsAdicionar,nivelSkill,setNivelSkill,usuario,setUsuario,skillsUsuario,setSkillUsuario}}>
+        <SistemaContext.Provider value={{autenticated,setAutenticated,skillsAdicionar,setSkillsAdicionar,nivelSkill,setNivelSkill,usuario,setUsuario,skillsUsuario,setSkillUsuario}}>
             {children}
         </SistemaContext.Provider>
     )

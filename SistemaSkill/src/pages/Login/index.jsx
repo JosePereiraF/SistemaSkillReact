@@ -1,20 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Cadastro, CheckBox, Container, ContainerBot, ContainerLeft, ContainerLeftBot, ContainerLeftTop, DivCadastro, DivSalvarCredecial, TextoErro } from './style'
-import Navbar from '../../components/Navbar'
 import Input from '../../components/Input'
 import Botao from '../../components/Botao'
 import { LoginUsuario } from '../../service/Usuario/usuario'
 import ContainerImagem from '../../components/ContainerImagem'
 import { useNavigate } from 'react-router-dom'
 import { SistemaContext } from '../../contexts/SistemaSkill/sistemaSkill'
-import { FaCheckSquare, FaSquare } from 'react-icons/fa'
 export default function Login() {
   const navigate = useNavigate();
   const [login,setLogin] = useState('');
   const [senha,setSenha] = useState("");
   const [erroMensagem,setErroMensagem] = useState("");
   const [saveCredencial,setSaveCredencial]=useState(false);
-  const {usuario,setUsuario,setAutenticated,autheticated}=useContext(SistemaContext);
+  const {setUsuario,setAutenticated,autheticated}=useContext(SistemaContext);
   const handleLogin =(event)=>{
     setLogin(event.target.value)
   };

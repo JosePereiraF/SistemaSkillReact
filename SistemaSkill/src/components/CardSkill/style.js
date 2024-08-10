@@ -9,6 +9,13 @@ height: 30vh;
 margin: 1rem;
 box-shadow: 0px 4px 8px #0f0f0f;
 border-radius: 15px;
+@media (max-width: 768px) {
+  min-width: 50vw;
+}
+@media (max-width: 660px) {
+    height: auto;
+}
+
 `
 export const DivExcluir = styled.div`
 display: flex;
@@ -23,6 +30,16 @@ display: flex;
 flex-direction: row;
 flex-shrink: 0;
 width: 100%;
+@media (max-width: 768px) {
+   
+}
+@media (max-width: 660px) {
+   flex-direction: column;
+   align-items: center;
+   height: 50vh;
+   gap: 2%;
+}
+
 `
 export const DivImagem = styled.div`
 display: flex;
@@ -31,6 +48,14 @@ width: 10vw;
 height: 20vh;
 justify-content: center;
 align-items: center;
+@media (max-width: 768px) {
+   min-width: 15vw;
+}
+@media (max-width: 660px) {
+    flex-direction: column-reverse;
+
+}
+
 `
 export const ImagemSkill = styled.img`
 width: 80%;
@@ -43,6 +68,13 @@ width: 15vw;
 justify-content: center;
 align-items: center;
 gap: 20%;
+@media (max-width: 768px) {
+    min-width: 15vw;
+}
+@media (max-width: 660px) {
+    height: auto;
+}
+
 `
 export const TituloNivel = styled.p`
 display: flex;
@@ -52,6 +84,7 @@ font-size: var(--fontsize-texto);
 export const DivAvaliacao = styled.div`
 display: flex;
 flex-direction: row-reverse;
+
 `
 export const DivDescricao = styled.div`
 display: flex;
@@ -61,8 +94,13 @@ align-items: center;
 margin-bottom: 10px;
 gap: 10px;
 width: 15vw;
-`
 
+`
+export const DivTextoDescricao= styled.div`
+max-height: 15vh;
+overflow-y: auto;
+
+`
 export const TextoDescricao = styled.p`
 font-size: 15px;
 

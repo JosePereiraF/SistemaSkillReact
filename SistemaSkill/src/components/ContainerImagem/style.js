@@ -12,4 +12,8 @@ export const ImagemLogin = styled.img`
 display: flex;
 height: 70vh;
 width: 50vw;
+@media (max-width: 660px) {
+    max-height: 50vh;
+    max-width: 45vw;
+}
 `
