@@ -15,6 +15,8 @@ export default function CardSkill({skill,page}) {
       idUsuario:usuario.id,
       idSkill:skill.id
     }
+    console.log(skill);
+    
     try {
       DeletarSkillUsuario(excluirSkill);
       const skills = skillsUsuario.filter(item => item.id !== excluirSkill.idSkill)

@@ -8,14 +8,17 @@ import { FaPlusCircle } from 'react-icons/fa'
 import ModalSkill from '../../components/ModalSkills'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ListarSkillUsuario } from '../../service/Usuario/usuario'
 
 export default function Home() {
   const {skillsUsuario,setSkillUsuario,usuario,skillsAdicionar,setSkillsAdicionar} =useContext(SistemaContext);
   const [modal,setModal]= useState(false);
   
   useEffect(()=>{
-      setSkillUsuario(usuario. skills==null?[]:usuario.skills);
-      console.log(skillsUsuario);
+    ListarSkillUsuario(usuario.id)
+    .then((res)=>{
+      setSkillUsuario(res.data);
+    });
   },[])
   const abrirModal=()=>{
     setModal(!modal);

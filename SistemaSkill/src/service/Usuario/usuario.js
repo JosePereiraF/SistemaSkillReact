@@ -7,7 +7,7 @@ export const LoginUsuario = async(loginDTO)=>{
     return Api.post(url,loginDTO);
 }
 export const CadastroUsuario = async(UsuarioDTO)=>{
-    const url = "/usuario/teste"
+    const url = "/usuario"
     return Api.post(url,UsuarioDTO);
 }
 export const ListarSkillUsuario = async(id)=>{

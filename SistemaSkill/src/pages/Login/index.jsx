@@ -44,6 +44,7 @@ export default function Login() {
       }
       localStorage.setItem('usuario',JSON.stringify(usuarioSave));
       localStorage.setItem('autenticado',true);
+      setUsuario(usuarioSave);
       setAutenticated(!autheticated);
       navigate("/home");
     } catch (error) {
