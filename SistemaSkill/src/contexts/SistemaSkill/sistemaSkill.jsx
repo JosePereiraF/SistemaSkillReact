@@ -1,13 +1,19 @@
 import { createContext, useState } from "react";
 
 export const SistemaContext = createContext({});
-const valorIncial =false;
+
 function SistemaProvider({children}){
     const [nivelSkill,setNivelSkill]= useState("");
-    const [usuario,setUsuario]=useState({});
+    const [usuario,setUsuario]=useState(()=>{
+        const usuarioLogado = localStorage.getItem('usuario');
+        return usuarioLogado ? JSON.parse(usuarioLogado) : {};
+    });
     const[skillsUsuario,setSkillUsuario]= useState([]);
     const [skillsAdicionar,setSkillsAdicionar]=useState([]);
-    const [autenticated,setAutenticated]=useState(false);
+    const [autenticated,setAutenticated]=useState(()=>{
+        const autenticado = localStorage.getItem('autenticado');
+        return autenticado ? JSON.parse(autenticado) : false;
+    });
 
     //,ativarMensagem,setAtivarMensagem,setMensagem
     return(

@@ -11,7 +11,6 @@ justify-content: center;
 align-items: center;
 box-shadow: 0px 4px 8px #0f0f0f;
 border-radius: 15px;
-
 `
 export const DivTitulo = styled.div`
 display: flex;

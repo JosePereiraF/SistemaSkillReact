@@ -67,7 +67,7 @@ export default function CardSkill({skill,page}) {
   
   const adicionarSkill= async()=>{
     const adicionarSkillUsuario={
-      idUsario:1,
+      idUsuario:usuario.id,
       skill:[
         {
           id:skill.id,

@@ -14,7 +14,7 @@ export default function Home() {
   const [modal,setModal]= useState(false);
   
   useEffect(()=>{
-      setSkillUsuario(usuario. skills);
+      setSkillUsuario(usuario. skills==null?[]:usuario.skills);
       console.log(skillsUsuario);
   },[])
   const abrirModal=()=>{

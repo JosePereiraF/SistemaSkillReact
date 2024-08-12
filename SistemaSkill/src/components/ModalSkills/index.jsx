@@ -8,6 +8,7 @@ import { FaTimes } from 'react-icons/fa';
 
 export default function ModalSkill({onClick}) {
   const {skillsUsuario,setSkillUsuario} =useContext(SistemaContext);
+
   useEffect(()=>{
     ListarSkills().then((res)=>{
       setSkillUsuario(res.data)
@@ -16,7 +17,7 @@ export default function ModalSkill({onClick}) {
   console.log(skillsUsuario);
   
   return (
-    <Container tabIndex={0}>
+    <Container tabIndex={0}>  
       <FaTimes onClick={onClick} style={{justifySelf:"end",alignSelf:"end",margin:"1%"}} tabIndex={0} aria-label='Selecione para fechar o modal'/>
       <DivTitulo tabIndex={0}>
       <Titulo tabIndex={0}>Adicionar skills</Titulo>

@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 export default function Navbar() {
   const navigate = useNavigate();
   const logout =()=>{
-    navigate("/login")
+    localStorage.setItem('autenticado',false);
+    navigate("/login");
   }
   return (
     <Container tabIndex={0}>

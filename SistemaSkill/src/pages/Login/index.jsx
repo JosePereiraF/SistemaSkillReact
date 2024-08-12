@@ -19,7 +19,7 @@ export default function Login() {
   const handleSenha =(event)=>{
     setSenha(event.target.value)
   };
-  const logar = async(event)=>{
+  const logar = async()=>{
 
     if(login.length === 0 || senha.length === 0){
         setErroMensagem("Preencha todos os campos")
@@ -42,7 +42,8 @@ export default function Login() {
       }else{
         localStorage.setItem('credencial',JSON.stringify(""));
       }
-      setUsuario(usuarioSave);
+      localStorage.setItem('usuario',JSON.stringify(usuarioSave));
+      localStorage.setItem('autenticado',true);
       setAutenticated(!autheticated);
       navigate("/home");
     } catch (error) {
