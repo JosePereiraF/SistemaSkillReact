@@ -79,7 +79,7 @@ export default function CardSkill({skill,page}) {
     }
     try {
       AdicionarUsuarioSkill(adicionarSkillUsuario);
-      setSkillsAdicionar([...skillsAdicionar,skill])
+      setSkillsAdicionar([skill,...skillsAdicionar])
       const skills = skillsUsuario.filter(item => item.id !== adicionarSkillUsuario.skill[0].id)
       setSkillUsuario(skills);
       toast.success("Skill Adicionada com sucesso!",{
